@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Cancel</fullName>
+        <categories>Cancel,Action,Button,all,AccountSurvey</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>Change</fullName>
+        <categories>labels, messages, buttons</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Change</shortDescription>
+        <value>Change</value>
+    </labels>
+    <labels>
+        <fullName>Duration</fullName>
+        <categories>labels</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Duration</shortDescription>
+        <value>Duration</value>
+    </labels>
+    <labels>
+        <fullName>EmailContact</fullName>
+        <categories>labels, messages, buttons</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>EmailContact</shortDescription>
+        <value>Email Contact?</value>
+    </labels>
+    <labels>
+        <fullName>No</fullName>
+        <categories>labels, messages, buttons</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No</shortDescription>
+        <value>No</value>
+    </labels>
+    <labels>
+        <fullName>RecordType</fullName>
+        <categories>labels</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>RecordType</shortDescription>
+        <value>Record Type</value>
+    </labels>
+    <labels>
+        <fullName>Save</fullName>
+        <categories>all, AccountSurvey</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Save</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>SaveAndNext</fullName>
+        <categories>buttons</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SaveAndNext</shortDescription>
+        <value>Save &amp; Next</value>
+    </labels>
+    <labels>
+        <fullName>Yes</fullName>
+        <categories>labels, messages, buttons</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yes</shortDescription>
+        <value>Yes</value>
+    </labels>
+</CustomLabels>

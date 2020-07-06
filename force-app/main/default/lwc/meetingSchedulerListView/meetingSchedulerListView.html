@@ -1,0 +1,26 @@
+<template>
+    <lightning-card title={currentListViewName} icon-name="standard:account">
+        <lightning-button label={labels.createEvents.label} slot="actions" onclick={handleCreateEventsClick}></lightning-button>
+        <lightning-button-icon icon-name="utility:date_input" alternative-text="Calendar" slot="actions" class="slds-m-left_small" onclick={handleCalendarClick}></lightning-button-icon>
+        <lightning-layout multiple-rows="true">
+            <lightning-layout-item size="12" padding="around-small">
+                <select onchange={handleListViewChange} class="combobox">
+                    <template for:each={listViews} for:item="listView">
+                        <option key={listView.value} value={listView.value}>{listView.label}</option>
+                    </template>
+                </select>
+                <!--<lightning-combobox name="cbListViews" label=" " value={currentListViewId} options={listViews} onchange={handleListViewChange}></lightning-combobox>-->
+            </lightning-layout-item>
+            <lightning-layout-item size="12" padding="horizontal-small">
+                <template if:true={isLoading}>
+                    <lightning-spinner alternate-text="Loading" size="medium"></lightning-spinner>
+                </template>
+                <template if:true={accounts}>
+                    <div class="slds-scrollable" style="height: 600px;">
+                        <lightning-datatable key-field="id" data={accounts} columns={listViewColumns} is-loading={isLoading} onrowselection={handleRowSelection}></lightning-datatable>
+                    </div>
+                </template>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template>

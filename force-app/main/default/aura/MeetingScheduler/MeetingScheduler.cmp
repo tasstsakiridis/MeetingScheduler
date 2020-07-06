@@ -1,0 +1,27 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+                access="global" >
+
+    <!-- String Attributes -->
+
+    <!-- Boolean Attributes -->
+    <aura:attribute name="isCreatingEvents" type="Boolean" default="false" />
+    <aura:attribute name="hasMoreAccounts" type="Boolean" default="true" />
+    
+    <!-- Collection Attributes -->
+    <aura:attribute name="selectedAccounts" type="String[]" default="[]" />
+
+    <!-- Object Attributes -->
+
+    <!-- Component Lifecycle events -->
+    <aura:handler name="init" value="this" action="{!c.doInit}" />
+
+    <div class="c-container">
+        <aura:if isTrue="{!v.isCreatingEvents}">
+            <c:meetingSchedulerEvents selectedAccounts="{!v.selectedAccounts}" hasMoreAccounts="{!v.hasMoreAccounts}"/>
+        <aura:set attribute="else">
+            <c:meetingSchedulerListView oncreateevents="{!c.handleCreateEvents}" />
+        </aura:set>
+        </aura:if>
+    </div>
+
+</aura:component>	

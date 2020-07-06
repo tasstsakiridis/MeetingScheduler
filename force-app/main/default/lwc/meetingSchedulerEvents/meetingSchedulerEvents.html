@@ -1,0 +1,26 @@
+<template>
+    <div>
+        <div class="fullcalendar" lwc:dom="manual" ontouchmove={handleScroll} onscroll={handleScroll}></div>
+    </div>
+    <!--
+    <lightning-layout>
+        <lightning-layout-item size={calendarDivSize} padding="around-small">
+            <div class="fullcalendar" lwc:dom="manual" ontouchmove={handleScroll} onscroll={handleScroll}></div>
+        </lightning-layout-item>
+            <lightning-layout-item size="4" padding="around-small">
+                <lightning-layout multiple-rows="true">
+                    <lightning-layout-item size="12" padding="around-small">
+                        <lightning-card title={summaryTitle} icon-name="standard:account">
+                            <lightning-button-icon icon-name="utility:list" variant="border-filled" alternative-text="List View" slot="actions" onclick={handleListViewClick}></lightning-button-icon>
+                        </lightning-card>
+                    </lightning-layout-item>
+                    <template if:true={hasMoreAccounts}>
+                        <lightning-layout-item size="12" padding="horizontal-small">
+                            <c-meeting-scheduler-event-dialog accounts={selectedAccounts} ></c-meeting-scheduler-event-dialog>
+                        </lightning-layout-item>     
+                    </template>
+                </lightning-layout>
+            </lightning-layout-item>
+    </lightning-layout>
+-->
+</template>

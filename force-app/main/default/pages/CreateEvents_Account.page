@@ -1,0 +1,34 @@
+<apex:page standardController="Account" recordSetVar="accounts" tabStyle="Account" sidebar="false">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+    </head>
+    <apex:includeLightning />
+    <div id="lightning" style="width: 100%"/>
+    <script>
+        var urlPrefix = '{!urlPrefix}';
+		var isPhone = '{!isPhone}';
+    	if (urlPrefix != '' && isPhone == 'true') {
+            var el = document.getElementById('lightning');
+            el.style.margin = '-10px -20px 0px -20px';
+            el.style.width = '112%';
+            el.style.height = '110%';
+        }
+        $Lightning.use("c:MeetingSchedulerApp", function() {
+            $Lightning.createComponent(
+                "c:MeetingScheduler", 
+                {
+                    "accounts" : {!accounts},
+                    "type"     : "account"
+                }, 
+                "lightning", 
+                function(cmp) {
+            });
+        });
+    
+    </script>
+    
+</apex:page>

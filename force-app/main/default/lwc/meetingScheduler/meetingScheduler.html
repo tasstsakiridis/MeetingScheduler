@@ -1,0 +1,11 @@
+<template>
+    <div class="c-container">
+        <template if:true={isCreatingEvents}>
+            <c-meeting-scheduler-events selected-accounts={selectedAccounts} has-more-accounts={hasMoreAccounts} oncreateevents={handleCreateEvents}></c-meeting-scheduler-events>            
+        </template>
+        <template if:false={isCreatingEvents}>
+            <c-meeting-scheduler-list-view oncreateevents={handleCreateEvents} ></c-meeting-scheduler-list-view>            
+        </template>
+    </div>
+    
+</template>

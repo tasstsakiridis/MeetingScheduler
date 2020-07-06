@@ -1,0 +1,59 @@
+<template>
+    <lightning-card>
+        <lightning-button label={labels.cancel.label} slot="actions" onclick={handleCancelClick}></lightning-button>
+        <lightning-button label={labels.skip.label} class="slds-m-horizontal_small" slot="actions" onclick={handleSkipClick}></lightning-button>
+        <template if:true={createMoreEvents}>
+            <lightning-button label={labels.saveAndNext.label} slot="actions" onclick={handleSaveAndNextClick}></lightning-button>
+        </template>
+        <template if:false={createMoreEvents}>
+            <lightning-button label={labels.save.label} slot="actions" onclick={handleSaveAndNextClick}></lightning-button>
+        </template>
+
+        <!-- Body -->
+        <div class="slds-m-vertical_small">
+            <lightning-layout multiple-rows="true">
+                <lightning-layout-item size="12" padding="around-small">
+                    <span class="slds-text-heading_medium slsds-text-title_caps">{eventTitle}</span>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small">
+                    <dl class="slds-list_horizontal slds-wrap">
+                        <dt class="slds-item_label slds-text-color_weak slds-truncate" title={labels.recordType.label}>{labels.recordType.label}</dt>
+                        <dd class="slds-item_detail slds-truncate">
+                            <template if:true={canChangeRecordType}>
+                                <!--<lightning-button variant="base" label={labels.change.label} class="slds-m-left_x-small slds-text-body_small lowercase" onclick={handleChangeRecordTypeClick}></lightning-button>-->
+                                <select onchange={handleRecordTypeChange} class="combobox">
+                                    <template for:each={recordTypes} for:item="rt">
+                                        <option key={rt.id} value={rt.id}>{rt.label}</option>
+                                    </template>
+                                </select>
+                            </template>
+                            <template if:false={canChangeRecordType}>
+                                {recordTypeLabel}
+                            </template>
+                        </dd>
+                    </dl>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small">
+                    <lightning-combobox name="subject" label={labels.subject.label} value={selectedSubject} placeholder={labels.subject.placeholder} options={subjectOptions} onchange={handleSubjectChange}></lightning-combobox>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small">
+                    <lightning-combobox name="contact" label={labels.contact.label} value={selectedContact} placeholder={labels.contact.placeholder} options={contactOptions} onchange={handleContactChange}></lightning-combobox>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small">
+                    <lightning-input type="toggle" label={labels.emailContact.label} value={emailContact} name="emailContact" message-toggle-active={labels.yes.label} message-toggle-inactive={labels.no.label} onchange={handleEmailContactChange}></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small">
+                    <lightning-input type="datetime" name="startdate" value={startDateTime} label="Start" timezone={timeZone} onchange={handleStartDateChange}></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small">
+                    <lightning-input type="datetime" name="enddate" value={endDateTime} label="End" timezone={timeZone} onchange={handleEndDateChange}></lightning-input>                    
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+
+        <!-- Footer -->
+        <div slot="footer">
+            {currentIndex} / {accounts.length}
+        </div>
+    </lightning-card>
+</template>
